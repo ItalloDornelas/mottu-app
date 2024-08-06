@@ -4,7 +4,6 @@ import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FavoriteComponent } from './pages/favorite/favorite.component';
 import { HomeComponent } from './pages/home/home.component';
-import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +14,6 @@ import { TranslateModule } from '@ngx-translate/core';
     HomeComponent,
     NavbarComponent,
     FavoriteComponent,
-    TranslateModule,
   ],
   templateUrl: './app.component.html',
   styles: [
