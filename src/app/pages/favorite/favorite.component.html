@@ -1,0 +1,38 @@
+<div
+  class="d-flex align-items-center justify-content-between w-100 mb-5 flex-wrap"
+>
+  <h1
+    class="text-left creepster-tittle"
+    style="
+      font-size: 48px;
+      font-weight: 400;
+      line-height: 48px;
+      letter-spacing: -0.02em;
+    "
+  >
+    Favoritos
+  </h1>
+</div>
+
+<div *ngIf="!favorites.length">
+  <app-notfound
+    [title]="notFoundTitle"
+    [description]="notFoundDescription"
+    [path]="notFoundPath"
+  ></app-notfound>
+</div>
+
+<div
+  *ngIf="favorites.length"
+  class="d-flex align-items-start gap-4 flex-wrap w-100 justify-content-center justify-content-lg-start"
+>
+  @for (character of favorites; track character.id) {
+  <app-card
+    [title]="character.name"
+    [description]="character.gender"
+    [imgPath]="character.image"
+    [isFavorite]="character.isFavorite"
+    [characterSelected]="character"
+  ></app-card>
+  }
+</div>

@@ -1,0 +1,36 @@
+<div
+  class="card color-core-border rounded-3 background-core card-dark position-relative"
+  style="width: 224px; height: 298px"
+>
+  <div
+    [ngClass]="isFavorite ? 'bg-light' : 'bg-transparent'"
+    class="position-absolute z-3 top-0 p-2 end-0"
+    style="border-radius: 2px 4px 0px 32px; cursor: pointer"
+    (click)="handleAddOrRemoveFavorite()"
+  >
+    <i
+      [ngClass]="isFavorite ? 'bi-heart-fill text-dark' : 'bi-heart text-light'"
+      class="bi"
+    ></i>
+  </div>
+  <img src="{{ imgPath }}" class="card-img-top" alt="..." />
+  <div class="card-body">
+    <h5
+      class="card-title text-left creepster-font text-light"
+      style="
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 24px;
+        letter-spacing: -0.02em;
+      "
+    >
+      {{ limitTextLength(title) }}
+    </h5>
+    <p
+      class="card-text text-left color-neutral-content"
+      style="font-size: 16px; font-weight: 400"
+    >
+      {{ description }}
+    </p>
+  </div>
+</div>

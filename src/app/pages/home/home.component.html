@@ -1,0 +1,49 @@
+<div
+  class="d-flex align-items-center justify-content-between w-100 mb-5 flex-wrap"
+>
+  <h1
+    class="text-left creepster-tittle"
+    style="
+      font-size: 48px;
+      font-weight: 400;
+      line-height: 48px;
+      letter-spacing: -0.02em;
+    "
+  >
+    Início
+  </h1>
+  <div>
+    <label class="input">
+      <input
+        type="search"
+        [formControl]="control"
+        class="input__field form-control bg-transparent color-core-border text-light"
+        type="text"
+        placeholder=" "
+      />
+      <span class="input__label color-neutral-content">Pesquisar</span>
+    </label>
+  </div>
+</div>
+
+<div *ngIf="!characters.length">
+  <app-notfound
+    [title]="notFoundTitle"
+    [description]="notFoundDescription"
+  ></app-notfound>
+</div>
+
+<div
+  *ngIf="characters.length"
+  class="d-flex align-items-start gap-4 flex-wrap w-100 justify-content-center justify-content-lg-start"
+>
+  @for (character of characters; track character.id) {
+  <app-card
+    [title]="character.name"
+    [description]="character.gender"
+    [imgPath]="character.image"
+    [characterSelected]="character"
+    [isFavorite]="character.isFavorite"
+  ></app-card>
+  }
+</div>

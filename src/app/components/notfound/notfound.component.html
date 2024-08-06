@@ -1,0 +1,27 @@
+<main
+  class="d-flex align-items-center justify-content-between w-100 color-core-border rounded-3 background-core"
+  style="min-height: 512px"
+>
+  <div class="card-body d-flex flex-column align-items-center">
+    <h5 class="not-found-title text-light">
+      {{ title }}
+    </h5>
+    <p class="not-found-description color-neutral-content">
+      {{ description }}
+    </p>
+    <div *ngIf="path">
+      <button
+        class="btn btn-light text-dark py-2 rounded-3"
+        style="
+          font-size: 14px;
+          font-weight: 600;
+          line-height: 14px;
+          text-align: center;
+        "
+        (click)="goToPage()"
+      >
+        Voltar ao início
+      </button>
+    </div>
+  </div>
+</main>
