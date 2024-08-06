@@ -2,7 +2,10 @@ import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Character } from '../../models/characters.interface';
-import { selectFavorite } from '../../store/characters/favorites/favorites.actions';
+import {
+  removeFavorite,
+  selectFavorite,
+} from '../../store/characters/favorites/favorites.actions';
 
 @Component({
   selector: 'app-card',
@@ -21,6 +24,10 @@ export class CardComponent {
 
   public handleAddOrRemoveFavorite(): void {
     this._store.dispatch(selectFavorite({ selected: this.characterSelected }));
+    if (this.characterSelected.isFavorite)
+      this._store.dispatch(
+        removeFavorite({ favorite: this.characterSelected })
+      );
   }
 
   public limitTextLength = (text: string) => {
